@@ -22,7 +22,10 @@ export function useAppMeta () {
   }
 
   function getMetaDescription (desc?: string) {
-    return desc ?? metaDefaultDesc
+    if (desc)
+      return desc.match(/<p>(.*?)<\/p>/)?.at(1) ?? desc
+
+    return metaDefaultDesc
   }
 
   function getMetaUrl (path?: string, slug?: string) {

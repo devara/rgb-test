@@ -97,5 +97,12 @@ export default defineNuxtConfig({
       ],
     },
   },
-  proxy: { proxies: { '/api': process.env.VITE_API_URL as string } },
+  proxy: {
+    proxies: {
+      '/api': {
+        target      : process.env.API_BASE_URL as string,
+        changeOrigin: true,
+      },
+    },
+  },
 })

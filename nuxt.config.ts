@@ -21,6 +21,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
+      apiBaseUrl      : '',
       pathGetProducts : '/v2/gifts',
       pathGetProduct  : '/v2/gifts/{id}',
       pathPostWishlist: '/v2/gifts/{id}/wishlist',
@@ -100,7 +101,7 @@ export default defineNuxtConfig({
   proxy: {
     proxies: {
       '/api': {
-        target      : process.env.API_BASE_URL as string,
+        target      : process.env.NUXT_PUBLIC_API_BASE_URL as string,
         changeOrigin: true,
       },
     },

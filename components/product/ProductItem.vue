@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Product } from '~/api/types/product'
+import type { Product } from '~/types/product'
 
 const emit  = defineEmits(['toggle:wish'])
 const props = defineProps({

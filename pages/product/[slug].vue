@@ -90,7 +90,7 @@
 
 <script lang="ts" setup>
 import { h } from 'vue-demi'
-import { getProduct } from '~/api/product'
+import { getProduct } from '~/repository/product'
 import BATIK_BG from '~/assets/images/batik-background.svg'
 
 const route = useRoute()

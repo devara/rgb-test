@@ -9,7 +9,7 @@
 import SALE_NEW from '~/assets/images/sale-new.svg'
 import SALE_BEST from '~/assets/images/sale-best.svg'
 import SALE_HOT from '~/assets/images/sale-hot.svg'
-import type { SaleValue } from '~/api/types/product'
+import type { SaleValue } from '~/types/product'
 
 const props = defineProps({
   sale: {

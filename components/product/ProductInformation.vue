@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { h } from 'vue-demi'
-import type { Product } from '~/api/types/product'
+import type { Product } from '~/types/product'
 
 interface TabItem {
   title: string,

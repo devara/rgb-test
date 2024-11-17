@@ -5,7 +5,7 @@ import type {
   ResponseOutput,
   ResponseListOutput,
 } from '.'
-import { type Product } from './types/product'
+import { type Product } from '../types/product'
 
 export async function getProducts (config?: AxiosRequestConfig): ApiResponse<ResponseListOutput<Product[]>> {
   return await api.get(getPath('pathGetProducts'), config)

@@ -3,7 +3,7 @@ import type {
   ProductAttribute,
   SaleValue,
   Stock,
-} from '~/api/types/product'
+} from '~/types/product'
 
 const defaultStockValue: Stock = {
   value: 'sold-out',

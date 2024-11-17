@@ -1,7 +1,7 @@
 import { acceptHMRUpdate } from 'pinia'
-import { getProducts, postWishlist } from '~/api/product'
-import type { Product, ProductFilter } from '~/api/types/product'
-import type { ResponseListOutput } from '~/api'
+import { getProducts, postWishlist } from '~/repository/product'
+import type { Product, ProductFilter } from '~/types/product'
+import type { ResponseListOutput } from '~/repository'
 
 export const useProductStore = defineStore('product-store', () => {
   const { ratingAttribute } = useProductAttribute()

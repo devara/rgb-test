@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ProductFilter } from '~/api/types/product'
+import type { ProductFilter } from '~/types/product'
 
 const {
   pageSetting,

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Stock } from '~/api/types/product'
+import type { Stock } from '~/types/product'
 
 const props = defineProps({
   stock: {

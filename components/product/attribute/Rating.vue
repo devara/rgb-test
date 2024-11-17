@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Product } from '~/api/types/product'
+import type { Product } from '~/types/product'
 import FULL_STAR from '~/assets/images/star-100.svg'
 import HALF_STAR from '~/assets/images/star-50.svg'
 import ZERO_STAR from '~/assets/images/star-0.svg'

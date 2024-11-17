@@ -16,9 +16,9 @@
     "vue-router": "latest"
   },
   "devDependencies": {
-    "@nuxt-alt/proxy": "^2.5.8",
     "@pinia/nuxt": "^0.7.0",
     "@privyid/eslint-config-persona": "^1.0.0-rc.12",
+    "@privyid/nhp": "^1.0.1",
     "@types/eslint": "8.44.6",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",

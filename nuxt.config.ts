@@ -6,13 +6,10 @@ const sw = process.env.SW === 'true'
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools         : { enabled: false },
-  modules          : [
-    '@pinia/nuxt',
-    '@privyid/nhp',
-    '@vite-pwa/nuxt',
-  ],
-  css    : ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
-  postcss: {
+  nitro            : { routeRules: { '/api/**': { proxy: { to: `${process.env.API_BASE_URL as string}/**` } } } },
+  modules          : ['@pinia/nuxt', '@vite-pwa/nuxt'],
+  css              : ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
+  postcss          : {
     plugins: {
       'tailwindcss'        : {},
       'tailwindcss/nesting': {},

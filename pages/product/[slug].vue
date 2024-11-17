@@ -92,9 +92,9 @@
 import { h } from 'vue-demi'
 import { getProduct } from '~/repository/product'
 import BATIK_BG from '~/assets/images/batik-background.svg'
+import type { Product } from '~/types/product'
 
-const route = useRoute()
-
+const route           = useRoute()
 const { wislist }     = storeToRefs(useProductStore())
 const { setWishlist } = useProductStore()
 
@@ -120,6 +120,9 @@ const disabledAddCart = computed(() => productStock.value.value === 'sold-out' |
 
 const ProductInfo = () => h('span', { innerHTML: product.value?.attributes.info })
 
+const { slug } = useRoute().params
+const { data } = await useFetch<{ data?: Product }>(`/api/v2/gifts/${(slug as string ?? '').split('--').at(0)}`)
+
 function toggleQuantity (type: 'add' | 'reduce') {
   if (productStock.value.value === 'sold-out')
     return
@@ -131,7 +134,21 @@ function toggleQuantity (type: 'add' | 'reduce') {
     quantity.value--
 }
 
+function initProductAttribute () {
+  if (!product.value)
+    return
+
+  product.value.attributes.rating = ratingAttribute(product.value.attributes.rating)
+  quantity.value                  = productStock.value.value === 'sold-out' ? 0 : 1
+}
+
 onMounted(async () => {
+  if (data.value?.data) {
+    product.value = data.value.data
+    initProductAttribute()
+    return
+  }
+
   try {
     const params   = (route.params.slug as string ?? '').split('--')
     const producID = params.at(0)
@@ -146,8 +163,7 @@ onMounted(async () => {
       if (product.value.attributes.slug !== slug)
         navigateTo('/')
 
-      product.value.attributes.rating = ratingAttribute(product.value.attributes.rating)
-      quantity.value                  = productStock.value.value === 'sold-out' ? 0 : 1
+      initProductAttribute()
     }
   } catch (error) {
     console.error(error)
@@ -157,22 +173,22 @@ onMounted(async () => {
 })
 
 useSeoMeta({
-  title        : () => getMetaTitle(product.value?.attributes.name),
-  ogTitle      : () => getMetaTitle(product.value?.attributes.name),
-  description  : () => getMetaDescription(productInfo.value),
-  ogDescription: () => getMetaDescription(productInfo.value),
+  title        : () => getMetaTitle(data.value?.data?.attributes.name ?? product.value?.attributes.name),
+  ogTitle      : () => getMetaTitle(data.value?.data?.attributes.name ?? product.value?.attributes.name),
+  description  : () => getMetaDescription(data.value?.data?.attributes.info ?? productInfo.value),
+  ogDescription: () => getMetaDescription(data.value?.data?.attributes.info ?? productInfo.value),
   ogImage      : () => {
     return {
-      url      : getMetaImageUrl(productBaseImage.value),
-      secureUrl: getMetaImageUrl(productBaseImage.value),
-      alt      : product.value?.attributes.name,
-      type     : getMetaImageType(productBaseImage.value),
+      url      : getMetaImageUrl(data.value?.data?.attributes.images.at(0) ?? productBaseImage.value),
+      secureUrl: getMetaImageUrl(data.value?.data?.attributes.images.at(0) ?? productBaseImage.value),
+      alt      : data.value?.data?.attributes.name ?? product.value?.attributes.name,
+      type     : getMetaImageType(data.value?.data?.attributes.images.at(0) ?? productBaseImage.value),
     }
   },
   ogUrl             : () => getMetaUrl('product', (route.params.slug ?? '') as string),
-  twitterTitle      : () => getMetaTitle(product.value?.attributes.name),
-  twitterDescription: () => getMetaDescription(productInfo.value),
-  twitterImage      : () => getMetaImageUrl(productBaseImage.value),
+  twitterTitle      : () => getMetaTitle(data.value?.data?.attributes.name ?? product.value?.attributes.name),
+  twitterDescription: () => getMetaDescription(data.value?.data?.attributes.info ?? productInfo.value),
+  twitterImage      : () => getMetaImageUrl(data.value?.data?.attributes.images.at(0) ?? productBaseImage.value),
   twitterCard       : 'summary',
 })
 </script>

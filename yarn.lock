@@ -1816,6 +1816,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxt-alt/proxy@npm:^2.5.8":
+  version: 2.5.8
+  resolution: "@nuxt-alt/proxy@npm:2.5.8"
+  dependencies:
+    "@nuxt/kit": "npm:^3.9.3"
+    "@refactorjs/http-proxy": "npm:latest"
+    "@refactorjs/serialize": "npm:latest"
+    defu: "npm:^6.1.3"
+    picocolors: "npm:^1.0.0"
+  checksum: 10/4906e7c9332d46adf17a28a574bacc9ec43b6ad1e3c85a632619318f338bec6c81cb4af153ee679fa2e4525304bbdbdfbfdc1c52012b23a7e60a8aecf5d44a04
+  languageName: node
+  linkType: hard
+
 "@nuxt/devalue@npm:^2.0.2":
   version: 2.0.2
   resolution: "@nuxt/devalue@npm:2.0.2"
@@ -1905,7 +1918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.14.159, @nuxt/kit@npm:^3.13.1, @nuxt/kit@npm:^3.13.2, @nuxt/kit@npm:^3.9.0":
+"@nuxt/kit@npm:3.14.159, @nuxt/kit@npm:^3.13.1, @nuxt/kit@npm:^3.13.2, @nuxt/kit@npm:^3.9.0, @nuxt/kit@npm:^3.9.3":
   version: 3.14.159
   resolution: "@nuxt/kit@npm:3.14.159"
   dependencies:
@@ -2263,6 +2276,22 @@ __metadata:
     pluralize: "npm:^8.0.0"
     yaml-ast-parser: "npm:0.0.43"
   checksum: 10/8094be605d9522946e567146605a5a7b26107fa231cc16514c9047feae3e95f583dabdcbbf25ab1486bf2e017b6707bc78213893eb3b280135f2802be9f7ecef
+  languageName: node
+  linkType: hard
+
+"@refactorjs/http-proxy@npm:latest":
+  version: 0.2.14
+  resolution: "@refactorjs/http-proxy@npm:0.2.14"
+  dependencies:
+    requires-port: "npm:^1.0.0"
+  checksum: 10/779ea3565056d72bd88595f8ae4fe77d60534d11e3b91e3002c0a3f6eeb8e98ad834807f7d16faeda8e22eb7d6a7a76824af1f7dcaf65b338ef99d3ab2e84a05
+  languageName: node
+  linkType: hard
+
+"@refactorjs/serialize@npm:latest":
+  version: 1.0.7
+  resolution: "@refactorjs/serialize@npm:1.0.7"
+  checksum: 10/bb0baa6cdf39a17257e3548ebc8ab77b56a93173f1d8e8fd44248d50b4404e0fe7f725a6b8c417ac5eaa6f6cef7a0af6a334a629da92c5571bcc70e8788dfc14
   languageName: node
   linkType: hard
 
@@ -4529,7 +4558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"defu@npm:^6.1.4":
+"defu@npm:^6.1.3, defu@npm:^6.1.4":
   version: 6.1.4
   resolution: "defu@npm:6.1.4"
   checksum: 10/aeffdb47300f45b4fdef1c5bd3880ac18ea7a1fd5b8a8faf8df29350ff03bf16dd34f9800205cab513d476e4c0a3783aa0cff0a433aff0ac84a67ddc4c8a2d64
@@ -8020,6 +8049,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nuxt-app@workspace:."
   dependencies:
+    "@nuxt-alt/proxy": "npm:^2.5.8"
     "@pinia/nuxt": "npm:^0.7.0"
     "@privyid/eslint-config-persona": "npm:^1.0.0-rc.12"
     "@types/eslint": "npm:8.44.6"
@@ -9361,6 +9391,13 @@ __metadata:
   version: 2.0.2
   resolution: "require-from-string@npm:2.0.2"
   checksum: 10/839a3a890102a658f4cb3e7b2aa13a1f80a3a976b512020c3d1efc418491c48a886b6e481ea56afc6c4cb5eef678f23b2a4e70575e7534eccadf5e30ed2e56eb
+  languageName: node
+  linkType: hard
+
+"requires-port@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "requires-port@npm:1.0.0"
+  checksum: 10/878880ee78ccdce372784f62f52a272048e2d0827c29ae31e7f99da18b62a2b9463ea03a75f277352f4697c100183debb0532371ad515a2d49d4bfe596dd4c20
   languageName: node
   linkType: hard
 

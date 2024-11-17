@@ -94,6 +94,10 @@ export default defineNuxtConfig({
           property: 'og:type',
           content : 'website',
         },
+        {
+          property: 'og:site:name',
+          content : process.env.APP_SITE_NAME,
+        },
       ],
     },
   },
